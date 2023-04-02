@@ -38,6 +38,8 @@ type GroupStatus struct {
 	// Important: Run "make" to regenerate code after modifying this file
 }
 
+//+genclient
+//+k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
 
@@ -50,6 +52,7 @@ type Group struct {
 	Status GroupStatus `json:"status,omitempty"`
 }
 
+//+k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 //+kubebuilder:object:root=true
 
 // GroupList contains a list of Group

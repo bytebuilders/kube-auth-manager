@@ -8,6 +8,16 @@
 You’ll need a Kubernetes cluster to run against. You can use [KIND](https://sigs.k8s.io/kind) to get a local cluster for testing, or run against a remote cluster.
 **Note:** Your controller will automatically use the current context in your kubeconfig file (i.e. whatever cluster `kubectl cluster-info` shows).
 
+### Generate CRDs
+
+```sh
+> kubebuilder init --domain appscode.com --skip-go-version-check
+> kubebuilder edit --multigroup=true
+> kubebuilder create api --group authentication --version v1alpha1 --kind User
+> kubebuilder create api --group authentication --version v1alpha1 --kind Group
+> make generate manifests fmt
+```
+
 ### Running on the cluster
 1. Install Instances of Custom Resources:
 
